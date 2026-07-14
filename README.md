@@ -1,5 +1,9 @@
 # AWS Cloud Journey ☁️
 
+![AWS](https://img.shields.io/badge/AWS-Cloud%20Journey-orange)
+![Status](https://img.shields.io/badge/Status-In%20Progress-blue)
+![Projects](https://img.shields.io/badge/Projects-Growing-success)
+
 Welcome to my AWS Cloud Journey repository.
 
 This repository documents my hands-on learning as I transition into Cloud Engineering. Rather than simply studying AWS concepts, I build practical projects, document my implementation process, record challenges, and reflect on what I learn.
