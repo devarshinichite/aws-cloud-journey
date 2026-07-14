@@ -1,4 +1,4 @@
-<h1 align="center"># AWS Cloud Journey ☁️</h1>
+<h1 align="center">AWS Cloud Journey ☁️</h1>
 
 <p align="center">
 
