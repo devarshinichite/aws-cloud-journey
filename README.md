@@ -33,7 +33,7 @@ Future roadmap:
 
 | Project                          | Status         |
 | -------------------------------- | -------------- |
-| Launching my First EC2 Instance  | ✅ Completed  |
+| Launching my First EC2 Instance  | 🚧 In Progress  |
 | Amazon S3 Static Website Hosting | Planned        |
 | VPC Fundamentals                 | Planned        |
 | IAM Basics                       | Planned        |
