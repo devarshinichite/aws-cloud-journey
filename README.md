@@ -33,9 +33,9 @@ Future roadmap:
 
 | Project                          | Status         |
 | -------------------------------- | -------------- |
-| Launching my First EC2 Instance  | ✅ Completed    |
-| Amazon S3 Static Website Hosting | ✅ Completed    |
-| VPC Fundamentals                 | 🚧 In Progress |
+| Launching my First EC2 Instance  | ✅ Completed  |
+| Amazon S3 Static Website Hosting | Planned        |
+| VPC Fundamentals                 | Planned        |
 | IAM Basics                       | Planned        |
 | CloudWatch Monitoring            | Planned        |
 | Hybrid AWS Homelab VPN           | Planned        |
