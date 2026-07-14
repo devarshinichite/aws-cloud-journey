@@ -1,8 +1,12 @@
-# AWS Cloud Journey ☁️
+<h1 align="center"># AWS Cloud Journey ☁️</h1>
+
+<p align="center">
 
 ![AWS](https://img.shields.io/badge/AWS-Cloud%20Journey-orange?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-blue?style=flat-square)
 ![Projects](https://img.shields.io/badge/Projects-Growing-success?style=flat-square)
+
+</p>
 
 Welcome to my AWS Cloud Journey repository.
 
