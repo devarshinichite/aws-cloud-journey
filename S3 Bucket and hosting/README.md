@@ -1,71 +1,75 @@
-# 🚀 Project 02 – S3 Bucket and Hosting
+# 🚀 Project 02 – S3 Bucket and Static Website Hosting
 
 ## 📌 Project Information
 
-| Item               | Details                                |
-| ------------------ | -------------------------------------- |
-| **Project Name**   | S3 Bucket and Hosting                  |
-| **Project Status** | ✅ Completed                           |
-| **Difficulty**     | ⭐ Beginner                            |
-| **Estimated Time** | *10 Minutes*                           |
-| **Date Completed** | *16 July 2026*                         |
-| **AWS Region**     | *us-east-1 – N. Virgina*               |
+| Item | Details |
+|------|---------|
+| **Project Name** | S3 Bucket and Static Website Hosting |
+| **Project Status** | ✅ Completed |
+| **Difficulty** | ⭐ Beginner |
+| **Estimated Time** | *10 Minutes* |
+| **Date Completed** | *16 July 2026* |
+| **AWS Region** | *us-east-1 – N. Virginia* |
 
 ---
 
 # 📖 Project Overview
 
-The objective of this project was to create an Amazon S3 Bucket and Host a static website. Understanding how bucket and object work's, the access permission and policy.
+The objective of this project was to create an Amazon S3 bucket and host a static website. Through this project, I learned how Amazon S3 buckets and objects work, how object permissions are managed, and why bucket policies are required for public access.
 
 ---
 
 # 🎯 Project Objective
 
-Successfully deployed an Amazon S3 Bucket and Hosted a static website, configure bucket policies and permission's for allowing public traffic to access static website.
+Successfully deployed an Amazon S3 bucket, hosted a static website, and configured bucket policies and permissions to allow public access to the website.
 
 ---
 
 # 🛠 AWS Services Used
 
-| AWS Service      | Purpose                                           |
-| ---------------- | ------------------------------------------------- |
-| Amazon S3        | Store object in a bucket                          |
-| Static website hosting   | Serve static content hosting           |
-| Bucket Policy    | Provides access to the objects stored in the bucket and allow pulic access of the website                 |
+| AWS Service | Purpose |
+|-------------|---------|
+| **Amazon S3** | Store website files (objects) in a bucket |
+| **Static Website Hosting** | Host and serve static website content |
+| **Bucket Policy** | Grant public read access to objects stored in the bucket for static website hosting |
 
 ---
 
 # 🧠 Skills Practiced
 
-* AWS Management Console
-* Amazon S3
-* Static web hosting
+- AWS Management Console
+- Amazon S3
+- Static Website Hosting
+- Bucket Policies
+- Object Management
 
 ---
 
 # 🏗 Architecture
 
 ```text
-                    S3 Bucket
+                      S3 Bucket
                          │
                          │
-                    Object
+                     Website Objects
+                         │
                          │
                     Bucket Policy
                          │
-                    Static website hosting
                          │
-                    Public endpoint access
+              Static Website Hosting
                          │
+                         │
+              Public Website Endpoint
 ```
 
 ---
 
 # 🔧 Configuration Details
 
-## Bucket policy
+## Bucket Policy
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -79,6 +83,7 @@ Successfully deployed an Amazon S3 Bucket and Hosted a static website, configure
     ]
 }
 ```
+
 ---
 
 # 🚀 Deployment Process
@@ -86,97 +91,124 @@ Successfully deployed an Amazon S3 Bucket and Hosted a static website, configure
 The following steps were performed:
 
 1. Logged into the AWS Management Console.
-2. Opened the S3 Dashboard.
+2. Opened the Amazon S3 Dashboard.
 3. Clicked **Create bucket**.
-4. Selected the Bucket type as *(General purpose)*.
-5. Enter Bucket name -> **silly-car-bucket**.
-6. Kept **Object Ownership** as *ACLs disabled*.
-7. Unchecked the *Block all public access* to enable public access.
-8. After creating the bucket -> Upload *(to store object)*.
-9. Select files and select upload.
-9. In Properties, at the bottom -> Edit **Static website hosting**.
-10. Enable static hosting and specify index document(*index.html*) and error document (*error.html*) and save changes.
-11. After enabling Static website hosting a Bucket website endpoint should appear. e.g. [http://bucket-name.s3-website-region-1.amazonaws.com]
-12. In Permission tab Edit **Bucket policy**. Define bucket policy in json format.
-13. Click on the Bucket website endpoint/URL. *(Properties -> Static website hosting)*. It should redirect to the index.html / Landing page.
+4. Selected the bucket type as **General purpose**.
+5. Entered the bucket name: **silly-car-bucket**.
+6. Kept **Object Ownership** as **ACLs disabled**.
+7. Unchecked **Block all public access** to allow public access.
+8. Created the bucket.
+9. Uploaded the website files (objects) to the bucket.
+10. Opened the **Properties** tab and edited **Static website hosting**.
+11. Enabled **Static website hosting** and specified:
+    - **Index document:** `index.html`
+    - **Error document:** `error.html`
+12. Saved the configuration changes.
+13. After enabling Static Website Hosting, a bucket website endpoint was generated.
+14. Opened the bucket website endpoint URL to verify that the website loaded successfully.
+15. Navigated to the **Permissions** tab and added the required bucket policy to allow public read access.
 
 ---
 
 # 📸 Screenshots
 
-* EC2 Dashboard
-    <img src="screenshots/EC2 Dashboard.png" alt="EC2-Dashboard">
-* Launch Instance Configuration
-    <img src="screenshots/Launch EC-2 Instance - 1.png" alt="EC-2-config">
-    <img src="screenshots/Launch EC-2 Instance - 2.png" alt="EC-2-config">
-* Running EC2 Instance
-    <img src="screenshots/AWS web SSH-1.png" alt="running">
-    <img src="screenshots/AWS web SSH-2.png" alt="running">
-    <img src="screenshots/AWS web SSH-3.png" alt="running">
-* User Data
-    <img src="screenshots/User Data - Script.png" alt="user-data">
-* Security Group Rules
-    <img src="screenshots/Security Group.png" alt="security-Group">
-* SSH Connection
-    <img src="screenshots/CMD SSH-1.png" alt="SSH">
-    <img src="screenshots/CMD SSH-2.png" alt="SSH">
-* Hosted Webpage
-    <img src="screenshots/Web page.png" alt="Web">
+### S3 Dashboard
 
-*Note : I deliberately redacted those IP's and certain ID's for security reasons*
+<img src="Screenshot/S3 Bucket.png" alt="S3 Dashboard">
+
+### Bucket Creation
+
+<img src="Screenshot/Create bucket.png" alt="Create Bucket">
+
+<img src="Screenshot/Bucket config - 1.png" alt="Bucket Configuration 1">
+
+<img src="Screenshot/Bucket config - 2.png" alt="Bucket Configuration 2">
+
+<img src="Screenshot/Bucket creation.png" alt="Bucket Created">
+
+### Object Upload
+
+<img src="Screenshot/Bucket upload.png" alt="Object Upload">
+
+<img src="Screenshot/Bucket upload - 2.png" alt="Object Upload 2">
+
+### Static Website Hosting
+
+<img src="Screenshot/Static website hosting.png" alt="Static Website Hosting">
+
+<img src="Screenshot/Static website hosting - 2.png" alt="Static Website Hosting 2">
+
+<img src="Screenshot/Static website hosting - 3.png" alt="Static Website Hosting 3">
+
+<img src="Screenshot/Forbidden.png" alt="403 Forbidden">
+
+### Bucket Policy
+
+<img src="Screenshot/Bucket policy.png" alt="Bucket Policy">
+
+<img src="Screenshot/Bucket policy 2.png" alt="Bucket Policy 2">
+
+### Static Website
+
+<img src="Screenshot/Silly cars 1.png" alt="Static Website">
+
+<img src="Screenshot/car error.png" alt="404 Error Page">
 
 ---
 
 # ⚠ Challenges Encountered
 
-## Challenge 
+## Challenge 1
 
-**403 - Forbidden**
+### 403 – Forbidden
 
-The first error that occured was 403 forbidden. I spent 30 mins rechecking the bucket permission and properties.
+The first issue I encountered was a **403 – Forbidden** error. I spent around 30 minutes reviewing the bucket permissions and configuration before identifying the root cause.
 
-**Cause**
+### Cause
 
-I didn't knew that you have to define a bucket policy for accessing the object inside the bucket. I believed that simply unchecking *Block all public access* would allow public access to bucket, objects and Static website.
+Initially, I assumed that simply disabling **Block all public access** would automatically make the bucket, its objects, and the static website publicly accessible. However, I later learned that a bucket policy is also required to grant public read access to the objects.
 
-**Resolution**
+### Resolution
 
-After a quick prompt in chatGPT I realised the mistake and defined the bucket policy in permissions tab.
+After asking ChatGPT for guidance, I realized the missing bucket policy was the issue. I created the appropriate bucket policy under the **Permissions** tab, which resolved the **403 Forbidden** error.
 
+---
 
 ## Challenge 2
 
-**404 Cat not found**
+### 404 – Car Not Found
 
-After applying Bucket policy there was a new challenge. 404 - Cat not found 😿.
+After fixing the bucket policy, I encountered a **404 – Not Found** error.
 
-**Cause**
+### Cause
 
-This error was a familiar one. I quickly knew what mistake were made that I have drag and dropped the entire folder, which did not put the *index.html* in the Bucket's root directory. 
+I quickly realized that I had uploaded the entire project folder instead of uploading the website files directly into the bucket. As a result, the `index.html` file was not located in the root directory, which Amazon S3 expects when serving a static website.
 
-**Resolution**
+### Resolution
 
-I simply moved the *index.html* into the root directory of the bucket and all other files at there appropriate location, So that no other error can occur. 
+I moved the `index.html` file to the root of the bucket and organized the remaining files into their appropriate locations. After correcting the file structure, the website loaded successfully.
 
 ---
 
 # 📚 Key Concepts Learned
 
-During this project I learned:
+During this project, I learned:
 
-* S3 Buckets and Object.
-* How file strucutre/hierarchy inside Amazon S3 works.
-* The need to define a bucket policy.
+- The difference between Amazon S3 buckets and objects.
+- How object hierarchy and file structure work in Amazon S3.
+- How Static Website Hosting works.
+- Why bucket policies are required for public access.
+- The relationship between bucket permissions and object accessibility.
 
 ---
 
 # 💡 Lessons Learned
 
-This project helped me understand that what is a S3 bucket. How it store's object and the hierarchy of S3 bucket and object.
+This project helped me better understand how Amazon S3 stores objects and how static website hosting works.
 
-Main lesson that I learned here is the need to have appropriate access of an object, permission and policy.
+One of the biggest lessons I learned was that disabling **Block all public access** alone is not enough. Public access also requires an appropriate bucket policy that grants permission to access the stored objects.
 
-Amazon S3 also act as serverless Website hosting option for static website.
+I also learned that Amazon S3 can serve as a simple and cost-effective serverless hosting solution for static websites.
 
 ---
 
@@ -184,15 +216,18 @@ Amazon S3 also act as serverless Website hosting option for static website.
 
 Possible enhancements include:
 
-* Implementing lifecycle policies to automatically transition data to cheaper storage classes.
-* Object access as per "principle-of-the-least-privilege".
+- Configure lifecycle policies to automatically transition objects to lower-cost storage classes.
+- Implement the **Principle of Least Privilege (PoLP)** for object access.
+- Secure the website using Amazon CloudFront with HTTPS.
+- Register a custom domain using Amazon Route 53.
+- Enable versioning for object recovery.
 
 ---
 
 # 📚 References
 
-* AWS Official Documentation
-* AWS Cloud Practitioner Learning Material
-* AWS Free Tier - Skill Builder
-* Personal Hands-on Practice
-* Amazon S3 Documentation
+- AWS Official Documentation
+- Amazon S3 Documentation
+- AWS Skill Builder (Cloud Practitioner Learning Path)
+- AWS Free Tier
+- Personal Hands-on Practice
