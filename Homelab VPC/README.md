@@ -73,7 +73,7 @@ flowchart LR
     NACL -->|Allowed traffic| SG
     SG -->|Allowed traffic| EC2
 
-    RT -.->|Associated with subnet<br/>Routing rules| PublicSubnet
+    RT -.->|Associated with subnet<br/><br/>Routing rules| PublicSubnet
     RT -.->|0.0.0.0/0 → IGW| IGW
 
 ```
