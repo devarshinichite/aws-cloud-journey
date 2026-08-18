@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EC2 Instance Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 40px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #232f3e;
+        }
+
+        .info {
+            margin: 15px 0;
+            padding: 12px;
+            background: #f8f9fa;
+            border-left: 4px solid #ff9900;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .public {
+            color: green;
+            font-weight: bold;
+        }
+
+        .private {
+            color: #d97706;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>EC2 Instance Information</h1>
+
+        <div class="info">
+            <span class="label">Instance ID:</span>
+            <span id="instance-id">{{ instance_id }}</span>
+        </div>
+
+        <div class="info">
+            <span class="label">Public IP:</span>
+            <span id="subnet-type">{{ public_ip }}</span>
+        </div>
+
+        <div class="info">
+            <span class="label">Private IP:</span>
+            <span id="private-ip">{{ private_ip }}</span>
+        </div>
+
+        <div class="info">
+            <span class="label">Region:</span>
+            <span id="public-ip">{{ region }}</span>
+        </div>
+    </div>
+</body>
+</html>
