@@ -56,6 +56,7 @@ This project demonstrates how to create and configure a VPC (CIDR, public and pr
 ```mermaid
 graph LR
     Browser["User Browser"]
+    IGW["Internet Gateway"]
 
     subgraph VPC["VPC (10.0.0.0/16)"]
         subgraph PublicSubnet["Public Subnet (10.0.1.0/24)"]
@@ -63,14 +64,15 @@ graph LR
             RT_Public["Public Route Table"]
         end
 
-        PrivateSubnet["Private Subnet (10.0.2.0/24)"]
+        subgraph PrivateSubnet["Private Subnet (10.0.2.0/24)"]
+            Private["Private Resources<br/>(future)"]
+        end
     end
 
-    IGW["Internet Gateway"]
-
     Browser -->|HTTP/HTTPS| IGW
-    IGW --> EC2
-    EC2 --> RT_Public
+    IGW -->|Inbound traffic| EC2
+
+    PublicSubnet -.->|Route table association| RT_Public
     RT_Public -->|0.0.0.0/0| IGW
 
 ```
