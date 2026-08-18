@@ -54,26 +54,27 @@ VPC-first: design and implement a secured VPC (public/private subnets, route tab
 This project demonstrates how to create and configure a VPC (CIDR, public and private subnets), associated networking components (Internet Gateway, route tables, Network ACLs, Security Groups), and how to attach and run an EC2 instance that hosts a Flask/Python service to serve content.
 
 ```mermaid
-graph LR
-    Browser["User Browser"]
-    IGW["Internet Gateway"]
+flowchart LR
+    Internet["Public Internet"]
 
     subgraph VPC["VPC (10.0.0.0/16)"]
-        subgraph PublicSubnet["Public Subnet (10.0.1.0/24)"]
-            EC2["EC2 Instance<br/>(Flask app / static assets)"]
-            RT_Public["Public Route Table"]
-        end
+        IGW["Internet Gateway"]
 
-        subgraph PrivateSubnet["Private Subnet (10.0.2.0/24)"]
-            Private["Private Resources<br/>(future)"]
+        subgraph PublicSubnet["Public Subnet (10.0.1.0/24)"]
+            RT["Public Route Table"]
+            NACL["Network ACL"]
+            SG["Security Group"]
+            EC2["EC2 Instance<br/>Private IP: 10.0.1.10<br/>(Flask app)"]
         end
     end
 
-    Browser -->|HTTP/HTTPS| IGW
-    IGW -->|Inbound traffic| EC2
+    Internet -->|Incoming HTTP/HTTPS| IGW
+    IGW -->|Deliver to public IP / private IP mapping| NACL
+    NACL -->|Allowed traffic| SG
+    SG -->|Allowed traffic| EC2
 
-    PublicSubnet -.->|Route table association| RT_Public
-    RT_Public -->|0.0.0.0/0| IGW
+    RT -.->|Associated with subnet<br/>Routing rules| PublicSubnet
+    RT -.->|0.0.0.0/0 → IGW| IGW
 
 ```
 
