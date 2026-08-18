@@ -55,20 +55,24 @@ This project demonstrates how to create and configure a VPC (CIDR, public and pr
 
 ```mermaid
 graph LR
-    Browser[User Browser]
-    EC2[EC2 Instance (Flask app / static assets)]
-    VPC[VPC (10.0.0.0/16)]
-    IGW[Internet Gateway]
-    PublicSubnet[Public Subnet (10.0.1.0/24)]
-    PrivateSubnet[Private Subnet (10.0.2.0/24)]
-    RT_Public[Public Route Table]
+    Browser["User Browser"]
 
-    Browser -->|HTTP/HTTPS| EC2
+    subgraph VPC["VPC (10.0.0.0/16)"]
+        subgraph PublicSubnet["Public Subnet (10.0.1.0/24)"]
+            EC2["EC2 Instance<br/>(Flask app / static assets)"]
+            RT_Public["Public Route Table"]
+        end
+
+        PrivateSubnet["Private Subnet (10.0.2.0/24)"]
+    end
+
+    IGW["Internet Gateway"]
+
+    Browser -->|HTTP/HTTPS| IGW
+    IGW --> EC2
     EC2 --> RT_Public
-    RT_Public --> IGW
-    IGW --> VPC
-    VPC --> PublicSubnet
-    VPC --> PrivateSubnet
+    RT_Public -->|0.0.0.0/0| IGW
+
 ```
 
 Overview
