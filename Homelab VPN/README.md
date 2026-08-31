@@ -62,41 +62,52 @@ Successfully deploy a WireGuard VPN gateway on AWS EC2, configure bidirectional 
 # 🏗 Architecture
 
 ```text
-                     Internet
-                         │
-                         │
-                 Elastic IP (Public)
-                         │
-                 Internet Gateway
-                         │
-                  Amazon VPC
-                         │
-                  Public Subnet
-                         │
-                 Security Group
-                 (UDP 51820 only)
-                         │
-           Amazon EC2 Instance (WireGuard Hub)
-                  wg0: 10.200.0.1/24
-                         │
-                  WireGuard Tunnel
-                  (Encrypted UDP)
-                         │
-                    Home Network
-                         │
-                    Home Router
-                 192.168.1.1/24
-                         │
-         ┌────────────────┼────────────────┐
-         │                │                │
-    Proxmox WG LXC    Jellyfin        qBittorrent
-    192.168.1.60      192.168.1.150   192.168.1.150
-    10.200.0.2/24     
-         │
-    ┌────┴────┐
- Root      Standard
-10.200.0.10 10.200.0.20
-Full LAN    Service-only
+Internet
+   │
+   │
+Elastic IP (Public)
+   │
+Internet Gateway
+   │
+Amazon VPC
+   │
+Public Subnet
+   │
+Security Group
+(UDP 51820 only)
+   │
+┌──────────────────────────────────────────┐
+│       Amazon EC2 - WireGuard Hub         │
+│                                          │
+│ wg0: 10.200.0.1/24                       │
+│                                          │
+│ Peers:                                   │
+│   10.200.0.10  Root     - FULL LAN       │
+│   10.200.0.20  Standard - SERVICE ONLY   │
+│   10.200.0.2   Home GW  - LAN Gateway    │
+└───────────────┬──────────────────────────┘
+                │
+                │ WireGuard tunnel
+                │ Encrypted UDP
+                │
+┌──────────────────────────────────────────┐
+│          Proxmox WG LXC                  │
+│                                          │
+│ eth0: 192.168.1.60                       │
+│ wg0:  10.200.0.2/24                      │
+│                                          │
+│ Gateway to 192.168.1.0/24                │
+└──────────────────┬───────────────────────┘
+                   │
+                   │ Home LAN
+                   │
+             Home Router
+             192.168.1.1
+                   │
+       ┌───────────┼───────────┐
+       │           │           │
+   Jellyfin    qBittorrent   Other LAN
+192.168.1.150 192.168.1.150   devices
 ```
 
 ---
