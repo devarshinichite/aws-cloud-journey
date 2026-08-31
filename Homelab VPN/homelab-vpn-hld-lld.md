@@ -248,7 +248,7 @@ flowchart TB
 
     LAN --> Proxmox
 
-    classDef note fill:#f9f,stroke:#333,stroke-width:1px;
+    classDef note fill:#000,stroke:#333,stroke-width:1px;
     note["VPN ADDRESS SPACE:\n10.200.0.0/24\nRoot 10.200.0.10 -> FULL LAN ACCESS\nStandard 10.200.0.20 -> SERVICE ACCESS ONLY"]:::note
     Router --> note
 ```
