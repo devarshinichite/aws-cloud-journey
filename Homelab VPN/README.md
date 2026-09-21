@@ -368,7 +368,7 @@ Initially underestimating the complexity of NAT and return traffic flow. Also, d
 
 # ✅ Project Summary
 
-This project successfully implemented a production-ready VPN gateway using WireGuard on AWS EC2, enabling secure and segmented remote access to homelab services without exposing the home ISP connection or individual services to the internet.
+This project successfully implemented a production-style VPN gateway using WireGuard on AWS EC2, enabling secure and segmented remote access to homelab services without exposing the home ISP connection or individual services to the internet.
 
 By completing this project, I gained deep understanding of network architecture, cryptographic VPN design, and security policy enforcement. The zero-trust approach with role-based access control and defense-in-depth demonstrates professional-grade infrastructure thinking.
 
