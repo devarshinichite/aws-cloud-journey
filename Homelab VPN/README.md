@@ -19,7 +19,7 @@ This project extends the foundation from Project 01 by implementing a secure, en
 
 The objective was to create a private, segmented network architecture that allows secure remote access to homelab services (Jellyfin, Sonarr, FTP, qBittorrent) while maintaining strict security boundaries between different user roles (Root vs. Standard).
 
-Rather than exposing services directly to the internet, this solution leverages WireGuard's efficiency and simplicity to create a zero-trust architecture with fine-grained access control at the firewall level.
+Rather than exposing services directly to the internet, this solution leverages WireGuard's efficiency and simplicity to create a least-privilege network segmentation and defense-in-depth architecture with fine-grained access control at the firewall level.
 
 ---
 
@@ -54,7 +54,6 @@ Successfully deploy a WireGuard VPN gateway on AWS EC2, configure bidirectional 
 * iptables/Firewall Configuration
 * Proxmox LXC Networking
 * VPN Peer Management
-* Zero-Trust Security Architecture
 * Network Segmentation
 
 ---
@@ -107,7 +106,7 @@ Security Group
        ┌───────────┼───────────┐
        │           │           │
    Jellyfin    qBittorrent   Other LAN
-192.168.1.150 192.168.1.150   devices
+192.168.1.150:8096 192.168.1.150:8080   devices
 ```
 
 ---
@@ -157,10 +156,10 @@ Elastic IP: `<ELASTIC_IP>`
 |---|---|
 | Home Router | 192.168.1.1 |
 | WG LXC eth0 | 192.168.1.60 |
-| Jellyfin | 192.168.1.150 |
+| Jellyfin | 192.168.1.150:8096 |
 | FTP | 192.168.1.151 |
 | Sonarr | 192.168.1.152 |
-| qBittorrent | 192.168.1.150 |
+| qBittorrent | 192.168.1.150:8080 |
 
 ---
 
@@ -228,7 +227,7 @@ The following high-level steps were performed:
 21. Generated Root client key pair
 22. Generated Standard client key pair
 23. Created Root client config with AllowedIPs = 10.200.0.0/24, 192.168.1.0/24
-24. Created Standard client config with AllowedIPs = 10.200.0.0/24, 192.168.1.150/32, 192.168.1.151/32, 192.168.1.153/32
+24. Created Standard client config with AllowedIPs = 10.200.0.0/24, 192.168.1.150/32, 192.168.1.151/32, 192.168.1.152/32
 25. Tested client connections from external network
 
 ---
@@ -274,7 +273,7 @@ During this project I learned:
 * NAT/MASQUERADE and why it's necessary for returning traffic in this topology
 * SNAT vs. standard NAT and when each is appropriate
 * iptables FORWARD chain policies and stateful connection tracking
-* Zero-trust network architecture and explicit service allowlists
+* Principle of least-privilege network segmentation and defense-in-depth
 * Why `AllowedIPs` on clients provides defense-in-depth but is not a security boundary
 * The difference between a routing-only VPN and a firewalled VPN gateway
 * Persistent keepalives and their role in NAT traversal
@@ -370,6 +369,6 @@ Initially underestimating the complexity of NAT and return traffic flow. Also, d
 
 This project successfully implemented a production-style VPN gateway using WireGuard on AWS EC2, enabling secure and segmented remote access to homelab services without exposing the home ISP connection or individual services to the internet.
 
-By completing this project, I gained deep understanding of network architecture, cryptographic VPN design, and security policy enforcement. The zero-trust approach with role-based access control and defense-in-depth demonstrates professional-grade infrastructure thinking.
+By completing this project, I gained deep understanding of network architecture, cryptographic VPN design, and security policy enforcement. The zero-trust inspired approach with role-based access control and defense-in-depth demonstrates professional-grade infrastructure thinking.
 
 This documentation serves as a comprehensive reference for the VPN deployment, a guide for future enhancements, and a portfolio artifact demonstrating advanced cloud networking and security architecture skills.
