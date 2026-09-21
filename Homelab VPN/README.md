@@ -314,10 +314,10 @@ I also discovered that the home ISP connection doesn't need to expose WireGuard 
 Possible enhancements include:
 
 * Migrate firewall rules from `iptables` to persistent `nftables` with `systemd` unit files
-* Implement DNS forwarding (Pi-hole/AdGuard Home) for FQDN access instead of raw IPs
+* Implement DNS forwarding for FQDN access instead of raw IPs
 * Add audit logging for Standard client access attempts
 * Create additional client roles (e.g., "Admin" for remote management)
-* Implement dynamic client provisioning via a management script
+* Automate client provisioning and key revocation
 * Set up Grafana/Prometheus monitoring for VPN tunnel statistics
 * Add rate limiting on firewall rules to prevent brute-force attempts
 * Implement VPN certificate rotation automation
@@ -369,6 +369,6 @@ Initially underestimating the complexity of NAT and return traffic flow. Also, d
 
 This project successfully implemented a production-style VPN gateway using WireGuard on AWS EC2, enabling secure and segmented remote access to homelab services without exposing the home ISP connection or individual services to the internet.
 
-By completing this project, I gained deep understanding of network architecture, cryptographic VPN design, and security policy enforcement. The zero-trust inspired approach with role-based access control and defense-in-depth demonstrates professional-grade infrastructure thinking.
+By completing this project, I gained deep understanding of network architecture, cryptographic VPN design, and security policy enforcement. The zero-trust inspired approach with least-privilege network segmentation, role-based access control and defense-in-depth demonstrates professional-grade infrastructure thinking.
 
 This documentation serves as a comprehensive reference for the VPN deployment, a guide for future enhancements, and a portfolio artifact demonstrating advanced cloud networking and security architecture skills.
