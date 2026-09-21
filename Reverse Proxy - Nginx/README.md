@@ -1,4 +1,4 @@
-# 🚀 Project – Hosting a Flask App on EC2 with Gunicorn & Nginx
+# 🚀 Project 05 – Hosting a Flask App on EC2 with Gunicorn & Nginx
 
 ## 📌 Project Information
 
