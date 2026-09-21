@@ -41,19 +41,18 @@ Successfully deploy a WireGuard VPN gateway on AWS EC2, configure bidirectional 
 
 ---
 
-# 🧠 Skills Practiced
+# 🧠 Technologies
 
 * AWS Management Console
-* Amazon EC2 Configuration
-* Elastic IP Association
-* Security Groups & NACLs
-* WireGuard VPN Configuration
+* Amazon EC2 
+* Elastic IP and VPC 
+* Security Groups & NACL
+* WireGuard 
 * Linux Networking
 * IP Forwarding & Routing
 * NAT/MASQUERADE Rules
 * iptables/Firewall Configuration
 * Proxmox LXC Networking
-* VPN Peer Management
 * Network Segmentation
 
 ---
