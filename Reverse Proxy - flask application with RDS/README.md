@@ -1,4 +1,4 @@
-# 🚀 Securing a Flask App on EC2 with a Private RDS Instance & Gunicorn/Nginx
+# Project 06 - 🚀 Securing a Flask App on EC2 with a Private RDS Instance & Gunicorn/Nginx
 
 ## 📌 Project Information
 
