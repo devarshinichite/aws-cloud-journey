@@ -9,7 +9,7 @@
 | **Difficulty**     | ⭐⭐⭐ Intermediate / Entry-Level DevOps                  |
 | **Estimated Time** | *2–3 Hours*                                          |
 | **Date Completed** | *17 October 2026*                                    |
-| **AWS Region**     | *us-east-1*                                          |
+| **AWS Region**     | *ap-south-1*                                          |
 
 ---
 
