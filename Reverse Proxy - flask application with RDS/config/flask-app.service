@@ -1,0 +1,27 @@
+[Unit]
+Description=Gunicorn instance to serve Flask application
+After=network-online.target
+Wants=network-online.target
+
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+User=ubuntu
+Group=www-data
+
+WorkingDirectory=/opt/cloud-asset-manager
+Environment=FLASK_ENV=production
+ExecStart=/opt/cloud-asset-manager/venv/bin/gunicorn --workers 3 --bind unix:flask-app.sock wsgi:app
+
+Restart=on-failure
+RestartSec=30s
+
+StandardOutput=journal
+StandardError=journal
+
+CPUQuota=50%
+MemoryMax=500M
+
+[Install]
+WantedBy=multi-user.target
