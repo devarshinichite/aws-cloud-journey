@@ -81,7 +81,7 @@ To avoid running a vulnerable development server in production, the web layer is
 
 The internals of the EC2 instance are structured to decouple web traffic handling from application execution. Below are the configurations used to keep the application running reliably as a background service.
 
-### 1. Gunicorn Systemd Service File (`/etc/systemd/system/gunicorn.service`)
+### 1. Gunicorn Systemd Service File (`/etc/systemd/system/flask-app.service`)
 The Flask application is managed as a `systemd` daemon with explicit resource quotas and backoff rate-limiting implemented to guarantee server stability:
 
 ```ini
