@@ -114,7 +114,7 @@ MemoryMax=500M
 WantedBy=multi-user.target
 ```
 
-### 2. Nginx Reverse Proxy Configuration (`/etc/nginx/sites-available/flaskapp`)
+### 2. Nginx Reverse Proxy Configuration (`/etc/nginx/sites-available/nginx-flask-app`)
 Nginx catches traffic on public port 80 and passes it directly to the Gunicorn process using the internal Unix socket file located in the application partition, avoiding local network overhead:
 
 ```nginx
@@ -141,6 +141,25 @@ server {
     # Custom log paths for easier troubleshooting
     error_log  /var/log/nginx/flaskapp_error.log;
     access_log /var/log/nginx/flaskapp_access.log;
+}
+```
+
+### 3. IAM Role and Policy (instanceRole)
+IAM Role attached to the EC2 Instance Profile grants the Flask application secure, temporary credentials to interact with AWS resources without hardcoding access keys.
+
+``` IAM Policy 
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "FlaskSecrets",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue"
+            ],
+            "Resource": "arn:aws:secretsmanager:ap-south-1:123456789012:secret:production/cloud-asset-manager/secrets"
+        }
+    ]
 }
 ```
 
