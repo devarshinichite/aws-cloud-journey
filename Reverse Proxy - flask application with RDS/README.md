@@ -174,7 +174,7 @@ The application logic inside `config.py` was built to be completely environment-
 ### 🔄 Runtime Environment Detection Flow
 When the application process initializes inside the Gunicorn worker, it executes the following logic:
 
-1. **Production Mode:** The app checks for the environment variable `APP_ENV=production` (injected via our `systemd` service file). 
+1. **Production Mode:** The app checks for the environment variable `FLASK_ENV=production` (injected via our `systemd` service file). 
 2. **AWS Secrets Manager Check:** It invokes the `boto3` client to fetch the database credentials (`MYSQL_PASSWORD`) and the application `FLASK_SECRET_KEY` directly from the AWS Secrets Manager API using the EC2 instance's IAM role.
 3. **Local Development Fallback:** If the AWS API call fails or if the application is run locally without an IAM role, the system gracefully falls back to a local development configuration (such as a local SQLite or development MySQL instance).
 
