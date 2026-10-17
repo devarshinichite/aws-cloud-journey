@@ -88,6 +88,8 @@ The Flask application is managed as a `systemd` daemon with explicit resource qu
 [Unit]
 Description=Gunicorn instance to serve Flask application
 After=network-online.target
+Wants=network-online.target
+
 StartLimitInterval=300s
 StartBurstLimit=5
 
@@ -96,12 +98,14 @@ User=ubuntu
 Group=www-data
 
 WorkingDirectory=/opt/cloud-asset-manager
-
-Environment=APP_ENV=production
-ExecStart=/opt/cloud-asset-manager/venv/bin/gunicorn --workers 3 --bind unix:flaskapp.sock wsgi:app
+Environment=FLASK_ENV=production
+ExecStart=/opt/cloud-asset-manager/venv/bin/gunicorn --workers 3 --bind unix:flask-app.sock wsgi:app
 
 Restart=on-failure
 RestartSec=30s
+
+StandardOutput=journal
+StandardError=journal
 
 CPUQuota=50%
 MemoryMax=500M
@@ -116,11 +120,27 @@ Nginx catches traffic on public port 80 and passes it directly to the Gunicorn p
 ```nginx
 server {
     listen 80;
-    server_name _; 
+    server_name _;
+
+    # Reverse Proxy configuration
     location / {
-        include proxy_params;
-        proxy_pass http://unix:/opt/flask-application/flaskapp.sock;
+        proxy_pass http://unix:/opt/cloud-asset-manager/flask-app.sock;
+        
+        # Standard proxy headers to preserve user context
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Timeouts to prevent hanging connections
+        proxy_connect_timeout 90s;
+        proxy_send_timeout 90s;
+        proxy_read_timeout 90s;
     }
+
+    # Custom log paths for easier troubleshooting
+    error_log  /var/log/nginx/flaskapp_error.log;
+    access_log /var/log/nginx/flaskapp_access.log;
 }
 ```
 
