@@ -207,7 +207,7 @@ Attached to the RDS instance to lock down database access:
 2. **Secret Configurations:** Create a new secret entry in AWS Secrets Manager containing the MySQL root password and application secret keys.
 3. **IAM Permissions:** Create an IAM role with custom permissions to access Secrets Manager and attach it to the EC2 instance as an Instance Profile.
 4. **Network Access Policies:** Create the `[Public]` and `[Private]` security groups. Map the inbound rule of the Private SG to accept traffic exclusively from the Public SG ID.
-5. **Application Start:** Transfer application files to `/opt/flask-application`, initialize the Python environment, configure the `systemd` and `nginx` config blocks, and launch services.
+5. **Application Start:** Transfer application files to `/opt/cloud-asset-manager`, initialize the Python environment, configure the `systemd` and `nginx` config blocks, and launch services.
 
 ---
 
