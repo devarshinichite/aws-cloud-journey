@@ -248,3 +248,10 @@ As I build upon this baseline architecture, I plan to roll out improvements acro
 ## 📝 Personal Reflection
 
 Building this project taught me that setting up a cloud application requires careful planning around network permissions. It was highly rewarding to see the Flask app successfully fetch its secrets from AWS Secrets Manager using an attached role instead of reading from a plaintext environment file. Learning how stateful security groups behave helped me write a cleaner configuration that leaves fewer entry points exposed to the internet.
+
+---
+
+## Note
+
+Some minor mistakes are presented here and there, which I'm trying to correct as I get the time, This particular Project will have a future update when I create my CI/CD pipepline project using Jenkins.
+(Current Status - I'm learning and understanding the fundamentals of CI/CD, SDLC, How branches work, What PR/MR. Making sure my DevOps/Cloud fundamentals are clear and up-to-date.) 
