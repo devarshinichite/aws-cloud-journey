@@ -41,9 +41,10 @@ Future roadmap:
 | Launching my First EC2 Instance  | ✅ Completed  |
 | Amazon S3 Static Website Hosting | ✅ Completed  |
 | VPC Fundamentals                 | ✅ Completed  |
-| IAM Basics                       | Planned        |
-| CloudWatch Monitoring            | Planned        |
-| Hybrid AWS Homelab VPN           | Planned        |
+| Hybrid AWS Homelab VPN           | ✅ Completed        |
+| Reverse Proxy - Flask Application                       | ✅ Completed        |
+| Reverse Proxy - Amazon RDS and Flask application (Production style)         | ✅ Completed        |
+
 
 ## Learning Philosophy
 
