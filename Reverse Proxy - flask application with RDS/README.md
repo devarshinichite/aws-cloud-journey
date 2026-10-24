@@ -253,5 +253,7 @@ Building this project taught me that setting up a cloud application requires car
 
 ## Note
 
-Some minor mistakes are presented here and there, which I'm trying to correct as I get the time, This particular Project will have a future update when I create my CI/CD pipepline project using Jenkins.
-(Current Status - I'm learning and understanding the fundamentals of CI/CD, SDLC, How branches work, What PR/MR. Making sure my DevOps/Cloud fundamentals are clear and up-to-date.) 
+- The S3 Bucket policy has been removed & revoked which is presented in the diagram.
+- Some minor mistakes are presented here and there, which I'm trying to correct as I get the time. This particular project will have a future update when I create my CI/CD pipepline project using Jenkins.
+(Current Status - I'm learning and understanding the fundamentals of CI/CD, SDLC, How branches work, What PR/MR, Artifacts and builds, Deployment strategies(Blue/Green, Canary, Rollback), etc. Making sure my DevOps/Cloud fundamentals are clear and up-to-date.)
+- For e.g. - A minor Gunicorn worker loop is presented in the code and config, which I discovered myself and already fixed. I'll use that artifact/build to push those changes that I've made when I'll do the CI/CD pipeline project.
