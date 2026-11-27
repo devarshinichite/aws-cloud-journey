@@ -19,13 +19,29 @@ The goal of this repository is to:
 * Track my progression from beginner to cloud engineer
 * Demonstrate my problem-solving and documentation skills
 
+## Completed Learning Path
+
+* AWS Cloud Quest: Cloud Practitioner (✅ 798/1000) - 
+<a href="https://www.credly.com/badges/f98eaa8e-2326-4fbb-a95a-2b4f4c587769"> Here
+  <img src="https://images.icon-icons.com/2551/PNG/512/external_link_icon_152846.png" alt="External Link" width="14" align="absmiddle" />
+</a>
+* CloudQuest -
+<a href="https://www.credly.com/badges/f98eaa8e-2326-4fbb-a95a-2b4f4c587769"> Here
+  <img src="https://images.icon-icons.com/2551/PNG/512/external_link_icon_152846.png" alt="External Link" width="14" align="absmiddle" />
+</a>
+* SimuLearn - 
+<a href="https://www.credly.com/badges/4cf102c3-00d2-42a5-8fd5-af78444cf688"> Here
+  <img src="https://images.icon-icons.com/2551/PNG/512/external_link_icon_152846.png" alt="External Link" width="14" align="absmiddle" />
+</a>
+
 ## Current Learning Path
 
-* AWS Cloud Practitioner
 * Hands-on AWS Labs
-* CloudQuest
-* SimuLearn
 * Personal AWS Free Tier Projects
+* CI/CD Fundamentals - 
+<a href="/CI-CD (Jenkins)/README.md"> Jenkins
+  <img src="https://images.icon-icons.com/2551/PNG/512/external_link_icon_152846.png" alt="External Link" width="14" align="absmiddle" />
+</a>
 
 Future roadmap:
 
