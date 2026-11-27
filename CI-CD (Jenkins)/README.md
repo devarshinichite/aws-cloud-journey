@@ -188,4 +188,5 @@ Terraform, Ansible, and monitoring/Grafana are future learning areas and not a c
 5. Incorporate IaC tools such as Terraform and Ansible, followed by monitoring such as Grafana or AWS CloudWatch
 
 ---
-*Documentation note: I might update this file in future when a concept is revisited or new capability is actually implemented.*
+- *Documentation note: I might update this file in future when a concept is revisited or new capability is actually implemented.*
+- *Behind but not outdated: This Documentation work is slightly behind my practical work and projects because I haven't had a chance to keep the documentation up to date. :P*
