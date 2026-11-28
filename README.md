@@ -22,7 +22,7 @@ The goal of this repository is to:
 ## Completed Learning Path
 
 * AWS Cloud Quest: Cloud Practitioner (✅ 798/1000) - 
-<a href="https://www.credly.com/badges/f98eaa8e-2326-4fbb-a95a-2b4f4c587769"> Here
+<a href="https://www.credly.com/badges/dccb3b3f-c8e9-49cc-a7cc-2af72f4c58c6"> Here
   <img src="https://images.icon-icons.com/2551/PNG/512/external_link_icon_152846.png" alt="External Link" width="14" align="absmiddle" />
 </a>
 
